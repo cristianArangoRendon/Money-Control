@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <InvariantGlobalization>true</InvariantGlobalization>
+    <InvariantGlobalization>false</InvariantGlobalization>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,7 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\User\" />
+    <ProjectReference Include="..\MoneyControl.Core\MoneyControl.Core.csproj" />
+    <ProjectReference Include="..\MoneyControl.Infraestructure\MoneyControl.Infraestructure.csproj" />
   </ItemGroup>
 
 </Project>
