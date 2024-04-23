@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoneyControl.Infraestructure.Repository
+namespace MoneyControl.Infraestructure.Helpers
 {
-    internal class UserRepository
+    internal class ExceptionHelper
     {
     }
 }

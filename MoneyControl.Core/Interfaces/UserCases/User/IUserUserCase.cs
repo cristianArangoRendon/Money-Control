@@ -1,9 +1,9 @@
 ﻿using MoneyControl.Core.DTOs.Response;
 using MoneyControl.Core.DTOs.User;
 
-namespace MoneyControl.Core.Interfaces.Repository
+namespace MoneyControl.Core.Interfaces.UserCases.User
 {
-    public interface IUserRepository
+    public interface IUserUserCase
     {
         public Task<ResponseDTO> CheckIn(CheckInDTO checkIn);
     }
