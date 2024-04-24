@@ -1,12 +1,5 @@
 using MoneyControl.Core.Interfaces.Repository;
-using MoneyControl.Core.Interfaces.Services;
-using MoneyControl.Core.Interfaces.UserCases.User;
 using MoneyControl.Infraestructure.Repository.DataContext;
-using MoneyControl.Infraestructure.Repository.User;
-using MoneyControl.Infraestructure.Services.ExecuteStoreProcedure;
-using MoneyControl.Infraestructure.Services.LogService;
-using MoneyControl.Infraestructure.Services.SqlCommandService;
-using MoneyControl.Infraestructure.UserCases.User;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,11 +10,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IDataContext, DataContext>();
-builder.Services.AddTransient<ISqlCommandService, SqlCommandService>();
-builder.Services.AddTransient<ILogService, LogService>();
-builder.Services.AddTransient<IUserRepository, UserRepository>();
-builder.Services.AddTransient<IUserUserCase, UserUserCase>();
-builder.Services.AddTransient<IExecuteStoreProcedureService, ExecuteStoreProcedureService>();
 
 
 var app = builder.Build();
