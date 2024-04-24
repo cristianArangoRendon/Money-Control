@@ -4,6 +4,7 @@ using MoneyControl.Core.DTOs.User;
 using MoneyControl.Core.Interfaces.Repository;
 using MoneyControl.Core.Interfaces.Services;
 using MoneyControl.Core.Interfaces.UserCases.User;
+using MoneyControl.Infraestructure.Helpers;
 using MoneyControl.Infraestructure.Helpers.Hash;
 
 namespace MoneyControl.Infraestructure.UserCases.User
@@ -32,7 +33,7 @@ namespace MoneyControl.Infraestructure.UserCases.User
             }
             catch (Exception ex)
             {
-                return null;
+                return ExceptionHelper.HandleException(_logService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
             
         }

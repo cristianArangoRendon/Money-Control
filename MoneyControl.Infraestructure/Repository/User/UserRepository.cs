@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Configuration;
-using MoneyControl.Core.DTOs;
 using MoneyControl.Core.DTOs.Response;
 using MoneyControl.Core.DTOs.User;
 using MoneyControl.Core.Interfaces.Repository;
@@ -10,15 +9,8 @@ namespace MoneyControl.Infraestructure.Repository.User
 {
     public class UserRepository : IUserRepository
     {
-        private readonly ILogService _logService;
         private readonly IExecuteStoreProcedureService _executeStoreProcedureService;
-        private readonly AuthSettings _authSettings;
-
-        public UserRepository(IConfiguration configuration, ILogService logService, IExecuteStoreProcedureService executeProcedure)
-        {
-            _logService = logService;
-            _executeStoreProcedureService = executeProcedure;
-        }
+        public UserRepository(IConfiguration configuration,  IExecuteStoreProcedureService executeProcedure) => _executeStoreProcedureService = executeProcedure;
         public async Task<ResponseDTO> CheckIn(CheckInDTO checkIn)
         {
             object obj = checkIn.ToObject<CheckInDTO>();
