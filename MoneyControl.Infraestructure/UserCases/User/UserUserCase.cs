@@ -13,10 +13,12 @@ namespace MoneyControl.Infraestructure.UserCases.User
     {
         private readonly ILogService _logService;
         private readonly IUserRepository _userRepository;
+        private readonly IConfiguration _configuration;
         public UserUserCase( ILogService logService, IUserRepository user, IConfiguration configuration)
         {
             _logService = logService;
             _userRepository = user;
+            _configuration = configuration;
         }
         public async Task<ResponseDTO> CheckIn(CheckInDTO checkIn)
         {
@@ -37,5 +39,36 @@ namespace MoneyControl.Infraestructure.UserCases.User
             }
             
         }
+
+        public async  Task<ResponseDTO> LogIn(LoginDTO Login)
+        {
+            ResponseDTO response = new ResponseDTO();
+            try
+            {
+
+                    Login.password = Hash256.GetSHA256Hash(Login.password);
+
+                    var result = await _userRepository.LogIn(Login);
+                    if(result.Message == "OK")
+                    {
+                         UserInfoDTO userForClaims =  await _userRepository.GetUserByEmail(Login.email);
+                        string Key = _configuration["JWT:Key"];
+                        int Hours = int.Parse(_configuration["JWT:Hours"]);
+                        result.Data = GenerateTokenHelper.GenerateToken(userForClaims,Key, Hours );
+                        
+                    }
+                return result;
+                
+                
+              
+            }
+            catch (Exception ex)
+            {
+                return ExceptionHelper.HandleException(_logService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
+            }
+            throw new NotImplementedException();
+        }
+
+
     }
 }

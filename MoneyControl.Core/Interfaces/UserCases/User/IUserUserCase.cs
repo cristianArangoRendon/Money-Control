@@ -6,5 +6,6 @@ namespace MoneyControl.Core.Interfaces.UserCases.User
     public interface IUserUserCase
     {
         public Task<ResponseDTO> CheckIn(CheckInDTO checkIn);
+        public Task<ResponseDTO> LogIn(LoginDTO Login);
     }
 }

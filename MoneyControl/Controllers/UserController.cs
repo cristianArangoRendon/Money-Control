@@ -14,5 +14,7 @@ namespace MoneyControl.Controllers
 
         [HttpPost("/User")]
         public async Task<ResponseDTO>CheckIn(CheckInDTO checkIn) => await _userUserCase.CheckIn(checkIn);
+        [HttpPost("/Auth")]
+        public async Task<ResponseDTO> LogIn(LoginDTO login) => await _userUserCase.LogIn(login);
     }
 }
