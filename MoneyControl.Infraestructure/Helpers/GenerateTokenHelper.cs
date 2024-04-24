@@ -26,7 +26,7 @@ namespace MoneyControl.Infraestructure.Helpers
                        new Claim("LastName", User.lastName ?? ""),
                        new Claim(ClaimTypes.Email, User.email ?? ""),
                        new Claim("id", User.id.ToString()),
-                       new Claim("age", User.age.ToString()),
+                       new Claim("age", User.age.ToString())
                     }
                     ),
                 Expires = DateTime.UtcNow.AddHours(Hours),
