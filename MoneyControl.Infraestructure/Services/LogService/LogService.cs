@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using MoneyControl.Core.Interfaces.Services;
 
-namespace MoneyControl.Infraestructure.Services.LogService
+namespace MoneyControl.Infraestructure.Services.Logservice
 {
     public class LogService : ILogService
     {

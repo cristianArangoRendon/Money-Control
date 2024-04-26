@@ -2,7 +2,7 @@
 using System.Data.SqlClient;
 using System.Reflection;
 
-namespace MoneyControl.Infraestructure.Services.SqlCommandService
+namespace MoneyControl.Infraestructure.Services.SqlCommandservice
 {
     public class SqlCommandService : ISqlCommandService 
     {

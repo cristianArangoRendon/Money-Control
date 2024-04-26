@@ -57,7 +57,7 @@ namespace MoneyControl.Infraestructure.Services.ExecuteStoreProcedure
                 using SqlDataReader reader = await command.ExecuteReaderAsync();
                 List<TResult> resultList = mapFunction(reader);
                 response.IsSuccess = true;
-                response.Message = reader.GetString(reader.GetOrdinal("ResultMessage"));
+                response.Message = "Exito";
                 response.Data = resultList;
                 return response;
             }
@@ -74,7 +74,7 @@ namespace MoneyControl.Infraestructure.Services.ExecuteStoreProcedure
         public async Task<ResponseDTO> ExecuteSingleObjectStoredProcedure<TResult>(string storedProcedureName, object parameters, Func<SqlDataReader, TResult> mapFunction)
         {
             ResponseDTO response = new ResponseDTO();
-            response.IsSuccess = false;
+            
             try
             {
                 using SqlCommand command = _DataContext.CreateCommand();
@@ -84,7 +84,7 @@ namespace MoneyControl.Infraestructure.Services.ExecuteStoreProcedure
                 using SqlDataReader reader = await command.ExecuteReaderAsync();
                 TResult resultList = mapFunction(reader);
                 response.IsSuccess = true;
-                response.Message = reader.GetString(reader.GetOrdinal("ResultMessage"));
+                response.Message = "Exito";
                 response.Data = resultList;
                 return response;
             }
@@ -101,7 +101,7 @@ namespace MoneyControl.Infraestructure.Services.ExecuteStoreProcedure
         public async Task<ResponseDTO> ExecuteStoredProcedure(string storedProcedureName, object parameters)
         {
             ResponseDTO response = new ResponseDTO();
-            response.IsSuccess = false;
+            
 
             try
             {

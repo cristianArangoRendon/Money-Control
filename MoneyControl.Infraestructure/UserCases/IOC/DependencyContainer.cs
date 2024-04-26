@@ -1,9 +1,13 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using MoneyControl.Core.Interfaces.Services;
+using MoneyControl.Core.Interfaces.UserCases.Expense;
+using MoneyControl.Core.Interfaces.UserCases.Frequency;
+using MoneyControl.Core.Interfaces.UserCases.FutureGoal;
+using MoneyControl.Core.Interfaces.UserCases.InCome;
 using MoneyControl.Core.Interfaces.UserCases.User;
-using MoneyControl.Infraestructure.Repository.User;
-using MoneyControl.Infraestructure.Services.LogService;
-using MoneyControl.Infraestructure.Services.SqlCommandService;
+using MoneyControl.Infraestructure.UserCases.Expense;
+using MoneyControl.Infraestructure.UserCases.Frequency;
+using MoneyControl.Infraestructure.UserCases.FutureGoals;
+using MoneyControl.Infraestructure.UserCases.Income;
 using MoneyControl.Infraestructure.UserCases.User;
 
 namespace MoneyControl.Infraestructure.UserCases.IOC
@@ -14,8 +18,12 @@ namespace MoneyControl.Infraestructure.UserCases.IOC
         {
 
             services.AddScoped<IUserUserCase, UserUserCase>();
-            services.AddTransient<ISqlCommandService, SqlCommandService>();
-            services.AddTransient<ILogService, LogService>();
+            services.AddTransient<IFrequencyUseCase, FrequencyUseCase>();
+            services.AddTransient<IFutureGoalUseCase, FutureGoalUseCase>();
+            services.AddTransient<IIncomeUseCase, IncomeUseCase>();
+            services.AddTransient<IExpenseUseCase, ExpenseUseCase>();
+            
+            
 
             return services;
         }

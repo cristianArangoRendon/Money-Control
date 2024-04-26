@@ -4,9 +4,8 @@ using MoneyControl.Core.DTOs.User;
 using MoneyControl.Core.Interfaces.Repository;
 using MoneyControl.Core.Interfaces.Services;
 using MoneyControl.Infraestructure.Helpers;
-using MoneyControl.Infraestructure.Repository.DataContext;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace MoneyControl.Infraestructure.Repository.User
 {

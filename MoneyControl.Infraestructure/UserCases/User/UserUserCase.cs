@@ -30,7 +30,7 @@ namespace MoneyControl.Infraestructure.UserCases.User
                     checkIn.password = Hash256.GetSHA256Hash(checkIn.password);
                     return await _userRepository.CheckIn(checkIn);
                 }
-                response.Message = "Debes tener más de 18 años.";
+                response.Message = "You must be over 18 years old.";
                 return response;
             }
             catch (Exception ex)
@@ -66,7 +66,7 @@ namespace MoneyControl.Infraestructure.UserCases.User
             {
                 return ExceptionHelper.HandleException(_logService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
-            throw new NotImplementedException();
+            
         }
 
 

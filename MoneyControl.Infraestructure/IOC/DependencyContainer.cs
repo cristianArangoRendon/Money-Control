@@ -9,8 +9,7 @@ namespace MoneyControl.Infraestructure.IOC
     public static class DependencyContainer
     {
         public static IServiceCollection
-
-       AddProyectoFinal(this IServiceCollection services, IConfiguration configuration)
+       AddMoneyControl(this IServiceCollection services)
         {
             services.AddUserCase();
             services.AddRepository();

@@ -1,20 +1,10 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MoneyControl.Core.DTOs.Response;
-using MoneyControl.Core.Interfaces.Repository;
-using MoneyControl.Core.Interfaces.Services;
-using MoneyControl.Core.Interfaces.UserCases.User;
-using MoneyControl.Infraestructure.Repository.DataContext;
-using MoneyControl.Infraestructure.Repository.User;
-using MoneyControl.Infraestructure.Services.ExecuteStoreProcedure;
-using MoneyControl.Infraestructure.Services.LogService;
-using MoneyControl.Infraestructure.Services.SqlCommandService;
-using MoneyControl.Infraestructure.UserCases.User;
+using MoneyControl.Infraestructure.IOC;
 using Newtonsoft.Json;
 using System.Net;
-using System.Reflection;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -74,12 +64,10 @@ builder.Services.AddSwaggerGen(config =>
     //var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
     //config.IncludeXmlComments(xmlPath);
 });
-builder.Services.AddTransient<IDataContext, DataContext>();
-builder.Services.AddTransient<IUserUserCase, UserUserCase>();
-builder.Services.AddTransient<IUserRepository, UserRepository>();
-builder.Services.AddTransient<IExecuteStoreProcedureService, ExecuteStoreProcedureService>();
-builder.Services.AddTransient<ILogService, LogService>();
-builder.Services.AddTransient<ISqlCommandService, SqlCommandService>();
+
+
+
+builder.Services.AddMoneyControl();
 
 var Key = Encoding.ASCII.GetBytes(builder.Configuration["JWT:key"]);
 

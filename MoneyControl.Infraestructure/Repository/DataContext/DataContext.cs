@@ -3,7 +3,7 @@ using MoneyControl.Core.Interfaces.Repository;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace MoneyControl.Infraestructure.Repository.DataContext
+namespace MoneyControl.Infraestructure.Repository.Datacontext
 {
     public class DataContext : IDisposable, IDataContext
     {
